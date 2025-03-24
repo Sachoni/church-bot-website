@@ -5,6 +5,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     const phone = document.getElementById("phone").value.trim();
     const occupation = document.getElementById("occupation").value.trim();
     const gender = document.getElementById("gender").value.trim();
+    const Whatsapp = document.getElementById("Whatsapp").value.trim();
     const arrivalTime = new Date().toLocaleTimeString();
 
     if (!name || !phone || !occupation || !gender) {
@@ -12,7 +13,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         return;
     }
 
-    const message = `📌 *New Member Registered* 📌\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n💼 *Occupation:* ${occupation}\n⚧ *Gender:* ${gender}\n⏳ *Arrival Time:* ${arrivalTime}`;
+    const message = `📌 *New Member Registered* 📌\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n💼 *Occupation:* ${occupation}\n⚧ *Gender:* ${gender}\n🐰 *Whatsapp:* ${Whatsapp}\n⏳ *Arrival Time:* ${arrivalTime}`;
 
     fetch(`https://api.telegram.org/bot7570539056:AAE8nG4JHQLoffMRPTY71l3ltBE8292bhFY/sendMessage`, {
         method: "POST",
@@ -46,32 +47,3 @@ function addToHistory(name, time) {
         historyList.removeChild(historyList.lastChild);
     }
 }
-
-// Dark/Light Mode Toggle
-document.getElementById("toggleMode").addEventListener("click", function() {
-    document.body.classList.toggle("light-mode");
-    this.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
-});
-
-// Play/Pause Background Music
-document.getElementById("playMusic").addEventListener("click", function() {
-    const music = document.getElementById("backgroundMusic");
-    if (music.paused) {
-        music.play();
-        this.textContent = "🔇";
-    } else {
-        music.pause();
-        this.textContent = "🎵";
-    }
-});
-
-// Get User Location
-document.getElementById("getLocation").addEventListener("click", function() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            alert(`📍 Location: Latitude ${position.coords.latitude}, Longitude ${position.coords.longitude}`);
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-});
