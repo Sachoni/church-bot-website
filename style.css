@@ -7,6 +7,26 @@
 }
 
 
+/* Style the checkbox */
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: blue;
+    /* Changes the checkbox color */
+}
+
+
+/* Style the label */
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
 /* Logo */
 
 .logo {

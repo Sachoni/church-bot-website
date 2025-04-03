@@ -5,6 +5,8 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     const phone = document.getElementById("phone").value.trim();
     const occupation = document.getElementById("occupation").value.trim();
     const gender = document.getElementById("gender").value.trim();
+    const role = document.getElementById("role").value.trim();
+    const isleader = document.getElementById('leader').checked;
     const arrivalTime = new Date().toLocaleTimeString();
 
     if (!name || !phone || !occupation || !gender) {
@@ -12,7 +14,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         return;
     }
 
-    const message = `*𝐁𝐔𝐍𝐆𝐎𝐌𝐀 𝐓𝐎𝐖𝐍𝐒𝐇𝐈𝐏 𝐀𝐋𝐓𝐄𝐑*\n\n📌 *𝙉𝙚𝙬 𝙈𝙚𝙢𝙗𝙚𝙧 𝙝𝙖𝙨 𝙍𝙚𝙜𝙞𝙨𝙩𝙚𝙧𝙚𝙙 𝙝𝙚𝙧𝙚 𝙖𝙧𝙚 𝙩𝙝𝙚 𝙙𝙚𝙩𝙖𝙞𝙡𝙨*...\n👤 *𝗡𝗮𝗺𝗲:* ${name}\n📞 *𝗣𝗵𝗼𝗻𝗲:* ${phone}\n💼 *𝗢𝗰𝗰𝘂𝗽𝗮𝘁𝗶𝗼𝗻:* ${occupation}\n⚧ *𝗚𝗲𝗻𝗱𝗲𝗿:* ${gender}\n\n⏳ *The person was registered at*${arrivalTime}`;
+    const message = `*𝐁𝐔𝐍𝐆𝐎𝐌𝐀 𝐓𝐎𝐖𝐍𝐒𝐇𝐈𝐏 𝐀𝐋𝐓𝐄𝐑*\n\n📌 *𝙉𝙚𝙬 𝙈𝙚𝙢𝙗𝙚𝙧 𝙝𝙖𝙨 𝙍𝙚𝙜𝙞𝙨𝙩𝙚𝙧𝙚𝙙 𝙝𝙚𝙧𝙚 𝙖𝙧𝙚 𝙩𝙝𝙚 𝙙𝙚𝙩𝙖𝙞𝙡𝙨*...\n👤 *𝗡𝗮𝗺𝗲:* ${name}\n📞 *𝗣𝗵𝗼𝗻𝗲:* ${phone}\n💼 *𝗢𝗰𝗰𝘂𝗽𝗮𝘁𝗶𝗼𝗻:* ${occupation}\n⚧ *𝗚𝗲𝗻𝗱𝗲𝗿:* ${gender}\n⚧ *role:* ${role}\n⚧ *leader:* ${isleader}\n\n⏳ *The person was registered at*${arrivalTime}`;
 
     fetch(`https://api.telegram.org/bot7570539056:AAE8nG4JHQLoffMRPTY71l3ltBE8292bhFY/sendMessage`, {
         method: "POST",
